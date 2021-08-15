@@ -1,0 +1,91 @@
+<div class="container" id="container">
+  <div class="container-fluid">
+    <div class="header">
+    <h1><b>GIT-search</b></h1>
+  </div>
+    <hr>
+    <form action="" class="form" (ngSubmit)="findProfile()">
+      <div class="form-group">
+        <div class="col-md-12">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control bg-gray col-sm-9 offset-3" placeholder="Name"
+              aria-label="user" aria-describedby="basic-addon2" name="username" [(ngModel)]="username">
+            <div class="input-group-append">
+              <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form><br><br>
+    <hr>
+    <div class="row">
+    <div class="describe">
+      <p>GIT-search finds the profile of the Github users. <br>displays users
+        Biography or descriptions, repositories, followings, <br>Followers & Avatar.</p>
+    </div>
+  </div>
+    <br><br>
+    <div *ngIf="profile" class="prof">
+      <div class="col-sm-8">
+        <div class="col-sm-2">
+          <img class="img" src="{{profile.avatar_url}} text-align centre">
+        </div>
+        <div class="col-sm-3">
+          <ul class="list-group">
+            <li class="list-group-item" *ngIf="profile.bio">{{profile.bio}}</li>
+            <li class="list-group-item" *ngIf="profile.blog">{{profile.blog}}</li>
+            <li class="list-group-item" *ngIf="profile.hireable">{{profile.hireable}}</li>
+            <li class="list-group-item" *ngIf="profile.email">{{profile.email}}</li>
+          </ul>
+        </div>
+
+        <div class="col-sm-6">
+          <div>
+            <hr>
+            <p class="buton">
+              <span class="span" class="btn btn-success"> {{profile.followers}} Followers</span><br><br>
+              <span class="span" class="btn btn-info"> {{profile.following}} Following </span><br><br>
+              <span class="span" class="btn btn-warning"> {{profile.public_gists}} gists</span><br><br>
+              <span class="span" class="btn btn-danger"> {{profile.public_repos}} Repositories</span><br>
+            </p>
+            <hr>
+            <hr>
+
+            <p>
+              <a href="{{profile.html_url}}" target="_blank" class=" view  btn btn-info">View profile on github</a>
+
+            </p>
+            <hr>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container" id="repos">
+    <h1>REPOSITORIES.</h1>
+    <hr>
+    <div class="row">
+      <div class="col-md-12">
+        <div class=" col-sm-10card-columns">
+          <div class="card" *ngFor="let repos of repos">
+            <div class="card">
+              <div class=" text-center" class="card-header">
+                <h2 id="name">{{repos.name}}</h2>
+              </div>
+              <div class="card-body">
+                <p id="description">
+                  {{repos.description}}
+                </p>
+              </div>
+              <a href="{{repos.html_url}}" class="text-align-center" class="source" target="_blank"
+                class="view btn btn-outline-warning">View project source</a>
+              <div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
