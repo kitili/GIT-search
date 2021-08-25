@@ -1,6 +1,6 @@
  
 # Project name
-Github-Finder
+Github-search
 
 # Contributors
 Mourine Kitili
@@ -15,9 +15,9 @@ Mourine Kitili
 * ANGULAR
 
 # Contact
-* 
+* [mourinekitilimourine@gmail.com]
 # Live link
-* 
+* kitili.github.io/git-search/
 # GithubFinder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
